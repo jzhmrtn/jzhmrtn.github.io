@@ -157,7 +157,7 @@ pannellum.viewer('panorama', {
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
-            "panorama": "provence.jpg",
+            "panorama": "https://i.ibb.co/XxZ6NgJ/provence.jpg",
             "hotSpots": [
                 {
                     "pitch": 1.1,
