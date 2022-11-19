@@ -1,22 +1,870 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://kit.fontawesome.com/b0200b6793.js" crossorigin="anonymous"></script>
+    <script defer>
+
+        function next() {
+            
+            let calendar = document.getElementsByClassName('month');
+            
+            for(let i = 0; i < calendar.length; i++) {
+                if(calendar[i].classList.contains('active')) {
+                    if(i == 11){              
+                        calendar[i].classList.toggle('active');
+                        i = 0;
+                        calendar[i].classList.toggle('active');
+                    } else {
+                        calendar[i].classList.toggle('active');
+                        i++;
+                        calendar[i].classList.toggle('active');
+                    }
+                }
+            }
+        }
+
+        function prev() {
+            
+            let calendar = document.getElementsByClassName('month');
+            
+            for(let i = 0; i < calendar.length; i++) {
+                if(calendar[i].classList.contains('active')) {
+                    if(i == 0){              
+                        calendar[i].classList.toggle('active');
+                        i = 11;
+                        calendar[i].classList.toggle('active');
+                    } else {
+                        calendar[i].classList.toggle('active');
+                        i--;
+                        calendar[i].classList.toggle('active');
+                    }
+                }
+            }
+        }
+
+        
+
+    </script>
     <style>
-    #panorama {
-        width: 100vw;
-        height: 100vh;
-    }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+        * {
+            font-size: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(130deg,#0D324D, #7F5A83);
+            display: grid;
+            place-items: center;
+        }
+
+        table {
+            table-layout:fixed;
+            border-collapse: collapse;
+            border-radius: .6rem;
+            background-color: rgba(236, 240, 241, 0.3);
+            color: white;
+        }
+
+        .month:not(.active){
+            display:none;
+        }
+
+        table th {
+            border-top-left-radius: .6rem;
+            border-top-right-radius: .6rem;
+            background-color: rgba(236, 240, 241, 0.3);
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+
+        table td {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        table tr:nth-child(2) td {
+            color: #90D5EC;
+            font-size: 1.425rem;
+            font-weight: bold;
+        }
+
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0rem 3rem;
+        }
+
+        button i {
+            color: white;
+        }
+
     </style>
+    <title>2023 Calendar</title>
 </head>
 <body>
 
-<div id="panorama"></div>
-<script src="main.js" defer></script>
+    <table class="month active">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> January 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+        </tr>    
+        <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+        </tr>    
+        <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+        </tr>    
+        <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+            <td style="opacity: 0.5;">4</td>
+        </tr>    
+    </table>
 
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> February 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>
+            <td style="opacity: 0.5;">31</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+        </tr>    
+        <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>    
+        <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+        </tr>    
+        <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+            <td style="opacity: 0.5;">4</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> March 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">26</td>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+        </tr>    
+        <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>    
+        <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+        </tr>    
+        <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> April 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">26</td>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>
+            <td style="opacity: 0.5;">31</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>    
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>    
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>    
+        <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+        </tr>    
+        <tr>
+            <td>30</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+            <td style="opacity: 0.5;">4</td>
+            <td style="opacity: 0.5;">5</td>
+            <td style="opacity: 0.5;">6</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> May 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">30</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+        </tr>    
+        <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>10</td>
+            <td>20</td>
+        </tr>    
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+        </tr>    
+        <tr>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> June 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">28</td>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>
+            <td style="opacity: 0.5;">31</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>    
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+        </tr>    
+        <tr>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+        </tr>    
+        <tr>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td style="opacity: 0.5;">1</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> July 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">25</td>
+            <td style="opacity: 0.5;">26</td>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>  
+            
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>    
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>    
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+        </tr>    
+        <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+        </tr>    
+        <tr>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>  
+            <td style="opacity: 0.5;">2</td>  
+            <td style="opacity: 0.5;">3</td>  
+            <td style="opacity: 0.5;">4</td>  
+            <td style="opacity: 0.5;">5</td>  
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> August 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">30</td>
+            <td style="opacity: 0.5;">31</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>    
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+        </tr>    
+        <tr>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+        </tr>    
+        <tr>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> September 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>
+            <td style="opacity: 0.5;">31</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            
+        </tr>    
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            
+        </tr>    
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            
+        </tr>    
+        <tr>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> October 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+        </tr>    
+        <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+        </tr>    
+        <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+        </tr>    
+        <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+            <td style="opacity: 0.5;">4</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> November 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">26</td>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+        </tr>    
+        <tr>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>    
+        <tr>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+        </tr>    
+        <tr>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+        </tr>    
+    </table>
+
+    <table class="month">    
+        <th colspan="9">
+            <button onclick="prev();"><i class="fa-solid fa-chevron-left"></i></button> December 2023 <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></i></button>
+        </th>
+        <tr>
+            <td>Su</td>
+            <td>Mo</td>
+            <td>Tu</td>
+            <td>We</td>
+            <td>Th</td>
+            <td>Fr</td>
+            <td>Sa</td>
+        </tr>
+        <tr>
+            <td style="opacity: 0.5;">26</td>
+            <td style="opacity: 0.5;">27</td>
+            <td style="opacity: 0.5;">28</td>
+            <td style="opacity: 0.5;">29</td>
+            <td style="opacity: 0.5;">30</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>    
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>    
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>    
+        <tr>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>    
+        <tr>
+            <td>31</td>
+            <td style="opacity: 0.5;">1</td>
+            <td style="opacity: 0.5;">2</td>
+            <td style="opacity: 0.5;">3</td>
+            <td style="opacity: 0.5;">4</td>
+            <td style="opacity: 0.5;">5</td>
+            <td style="opacity: 0.5;">6</td>
+        </tr>    
+    </table>
 </body>
 </html>
