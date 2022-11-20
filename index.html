@@ -40,6 +40,11 @@
       }
       
     </style>
+    
+    <script>
+      function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
+    </script>
+    
   </head>
 
   <body>
@@ -56,7 +61,11 @@
     <script src="panolens.min.js"></script>
 
     <script>
-
+      
+      window.onload = function () {
+        aload();
+      };
+      
       var panorama, panorama2, panorama3, infospot, infospot2, viewer, progress, progressElement;
 
       progressElement = document.getElementById( 'progress' );
@@ -77,14 +86,17 @@
         }
 
       }
-
+      
+      let img1 = data-aload="img1.png";
+      let img2 = data-aload="img2.png";
+      
       // First panorama
-      panorama = new PANOLENS.ImagePanorama( 'img1.png' );
+      panorama = new PANOLENS.ImagePanorama( img1 );
       panorama.addEventListener( 'progress', onProgress );
       panorama.addEventListener( 'enter', onEnter );
       
       // Second panorama
-      panorama2 = new PANOLENS.ImagePanorama( 'img2.jpg' );
+      panorama2 = new PANOLENS.ImagePanorama( img2 );
       panorama2.addEventListener( 'progress', onProgress );
       panorama2.addEventListener( 'enter', onEnter );
       
