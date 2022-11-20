@@ -66,8 +66,12 @@
     <script src="panolens.min.js"></script>
 
 
-    <script>
-
+    <script defer>
+      
+      window.onload = function () {
+        aload();
+      };
+      
       var panorama, panorama2, panorama3, infospot, infospot2, viewer, progress, progressElement;
 
       progressElement = document.getElementById( 'progress' );
