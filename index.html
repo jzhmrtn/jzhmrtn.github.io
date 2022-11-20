@@ -45,9 +45,9 @@
         function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
     </script>
 
-    <script data-aload="https://i.ibb.co/Dp7nNTy/brown-photostudio-02-4k.jpg"></script>
-    <script data-aload="img2.png"></script>
-    <script data-aload="img3.png"></script>
+    <script data-aload="https://i.ibb.co/R01P66y/1.jpg"></script>
+    <script data-aload="https://i.ibb.co/wQn9mc9/2.jpg"></script>
+    <script data-aload="https://i.ibb.co/z7YyTBq/3.jpg"></script>
 
 
   </head>
@@ -90,12 +90,12 @@
       }
 
       // First panorama
-      panorama = new PANOLENS.ImagePanorama( 'img1.png' );
+      panorama = new PANOLENS.ImagePanorama( 'https://i.ibb.co/R01P66y/1.jpg' );
       panorama.addEventListener( 'progress', onProgress );
       panorama.addEventListener( 'enter', onEnter );
       
       // Second panorama
-      panorama2 = new PANOLENS.ImagePanorama( 'https://i.ibb.co/Dp7nNTy/brown-photostudio-02-4k.jpg' );
+      panorama2 = new PANOLENS.ImagePanorama( 'https://i.ibb.co/wQn9mc9/2.jpg' );
       panorama2.addEventListener( 'progress', onProgress );
       panorama2.addEventListener( 'enter', onEnter );
       
@@ -109,7 +109,7 @@
       infospot2.position.set( -5000.00, -1825.25, 197.56 );
       infospot2.addHoverElement( document.getElementById( 'youtube' ), 200 );
 
-      panorama3 = new PANOLENS.ImagePanorama( 'img3.jpg' );
+      panorama3 = new PANOLENS.ImagePanorama( 'https://i.ibb.co/z7YyTBq/3.jpg' );
       panorama3.add( infospot );
       panorama3.add( infospot2 );
       panorama3.addEventListener( 'progress', onProgress );
