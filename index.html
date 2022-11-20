@@ -89,6 +89,8 @@
       
       let img1 = data-aload="img1.png";
       let img2 = data-aload="img2.png";
+      let img1 = data-aload="img3.png";
+      
       
       // First panorama
       panorama = new PANOLENS.ImagePanorama( img1 );
@@ -110,7 +112,7 @@
       infospot2.position.set( -5000.00, -1825.25, 197.56 );
       infospot2.addHoverElement( document.getElementById( 'youtube' ), 200 );
 
-      panorama3 = new PANOLENS.ImagePanorama( 'img3.jpg' );
+      panorama3 = new PANOLENS.ImagePanorama( img3 );
       panorama3.add( infospot );
       panorama3.add( infospot2 );
       panorama3.addEventListener( 'progress', onProgress );
