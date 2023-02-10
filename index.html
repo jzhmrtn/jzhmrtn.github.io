@@ -6,40 +6,36 @@
     <title>Panolens.js panorama loading progress</title>
     <style>
       html, body {
-        margin: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        background-color: #000;
-      }
-
-      a:link, a:visited{
-        color: #bdc3c7;
-      }
-
-      .credit{
-        position: absolute;
-        text-align: center;
         width: 100%;
-        padding: 20px 0;
-        color: #fff;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
       }
 
-      #progress {
-        width: 0;
-        height: 5px;
-        position: fixed;
-        top: 0;
-        background: #fff;
-        -webkit-transition: opacity 0.5s ease;
-        transition: opacity 0.5s ease;
+      body {
+        background-image:url('https://s-media-cache-ak0.pinimg.com/originals/f5/e7/73/f5e773f77a32bac74c9e98d4c3512ba5.jpg');
+        background-size: cover;
       }
 
-      #progress.finish {
-        opacity: 0;
+      #container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        width: 700px;
+        height: 400px;
       }
       
     </style>
+
+    <script>
+        function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
+    </script>
+
+    <script data-aload="https://i.ibb.co/R01P66y/1.jpg"></script>
+    <script data-aload="https://i.ibb.co/wQn9mc9/2.jpg"></script>
+    <script data-aload="https://i.ibb.co/z7YyTBq/3.jpg"></script>
+
+
   </head>
 
   <body>
@@ -50,69 +46,92 @@
       <div class="text">WWII came to the small town of Tai’erzhuang in central China – and it was never the same again. The town was strategically placed, on the north-south transport railway corridor and the ancient Grand Canal, and so was a focus of the Japanese Imperial army as it advanced. Li Jing Shan was only a child when his family fled the fighting. They returned to find their home, and most of the town, in ruins.</div>
     </div>
 
-    <div id="progress"></div>
-    
+    <div id="progress"></div><div id="container"></div>
+
     <script src="three.min.js"></script>
     <script src="panolens.min.js"></script>
 
-    <script>
 
-      var panorama, panorama2, panorama3, infospot, infospot2, viewer, progress, progressElement;
+    <script defer>
+      
+      window.onload = function () {
+        aload();
+      };
+      
+      var panorama, viewer, container, infospot;
+      var containerBaseWidth = 700;
+      var containerBaseHeight = 400;
+      var deltaSize = 100;
 
-      progressElement = document.getElementById( 'progress' );
+      container = document.querySelector( '#container' );
 
       function onEnter ( event ) {
 
-        progressElement.style.width = 0;
-        progressElement.classList.remove( 'finish' );
+      container.style.width = 0;
+      container.classList.remove( 'finish' );
 
       }
 
       function onProgress ( event ) {
 
-        progress = event.progress.loaded / event.progress.total * 100;
-        progressElement.style.width = progress + '%';
-        if ( progress === 100 ) {
-          progressElement.classList.add( 'finish' );
-        }
+      progress = event.progress.loaded / event.progress.total * 100;
+      container.style.width = progress + '%';
+      if ( progress === 100 ) {
+        container.classList.add( 'finish' );
+      }
 
       }
 
-      // First panorama
-      panorama = new PANOLENS.ImagePanorama( 'img1.png' );
+
+      panorama = new PANOLENS.ImagePanorama( 'https://i.ibb.co/R01P66y/1.jpg' );
       panorama.addEventListener( 'progress', onProgress );
       panorama.addEventListener( 'enter', onEnter );
-      
-      // Second panorama
-      panorama2 = new PANOLENS.ImagePanorama( 'img2.jpg' );
+
+      panorama2 = new PANOLENS.ImagePanorama( 'https://i.ibb.co/wQn9mc9/2.jpg' );
       panorama2.addEventListener( 'progress', onProgress );
       panorama2.addEventListener( 'enter', onEnter );
-      
 
-      // Third panorama
-      infospot = new PANOLENS.Infospot();
-      infospot.position.set( 5000.00, -665.23, -3996.49 );
-      infospot.addHoverText( 'The Where Is Bar' );
-
-      infospot2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
-      infospot2.position.set( -5000.00, -1825.25, 197.56 );
-      infospot2.addHoverElement( document.getElementById( 'youtube' ), 200 );
-
-      panorama3 = new PANOLENS.ImagePanorama( 'img3.jpg' );
-      panorama3.add( infospot );
-      panorama3.add( infospot2 );
+      panorama3 = new PANOLENS.ImagePanorama( 'https://i.ibb.co/z7YyTBq/3.jpg' );
       panorama3.addEventListener( 'progress', onProgress );
       panorama3.addEventListener( 'enter', onEnter );
-
-
+      
       // Linking panoramas
       panorama.link( panorama2, new THREE.Vector3( -2302.98, 358.27, -4414.74 ) );
       panorama2.link( panorama, new THREE.Vector3( 4954.53, 319.21, -556.71 ) );
       panorama.link( panorama3, new THREE.Vector3( 4954.53, 319.21, -556.71 ) );
       panorama3.link( panorama, new THREE.Vector3( -3399.16, 1015.42, -5000.00 ) );
 
-      viewer = new PANOLENS.Viewer();
-      viewer.add( panorama, panorama2,panorama3 );
+      viewer = new PANOLENS.Viewer( { container: container } );
+      viewer.add( panorama );
+
+      // First panorama
+
+      
+      // Second panorama
+      
+      
+      
+
+      // Third panorama
+      // infospot = new PANOLENS.Infospot();
+      // infospot.position.set( 5000.00, -665.23, -3996.49 );
+      // infospot.addHoverText( 'The Where Is Bar' );
+
+      // infospot2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+      // infospot2.position.set( -5000.00, -1825.25, 197.56 );
+      // infospot2.addHoverElement( document.getElementById( 'youtube' ), 200 );
+
+      
+      // panorama3.add( infospot );
+      // panorama3.add( infospot2 );
+      // panorama3.addEventListener( 'progress', onProgress );
+      // panorama3.addEventListener( 'enter', onEnter );
+
+
+
+        
+      // viewer = new PANOLENS.Viewer();
+      // viewer.add( panorama, panorama2,panorama3 );
 
     </script>
 
