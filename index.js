@@ -20,9 +20,7 @@
   var bowser = window.bowser;
   var screenfull = window.screenfull;
   var data = window.APP_DATA;
-  var curBldng = "B1/";
-  var curFlr = "F2";
-  
+
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
@@ -71,11 +69,10 @@
 
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-  
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
-    var urlPrefix = "tiles/";
+    var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
@@ -199,13 +196,12 @@
 
     //changes the contents of the list 
     changeList(curScn);
-
   }
 
   function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
-  
+
   function updateSceneList(scene) {
     for (var i = 0; i < sceneElements.length; i++) {
       var el = sceneElements[i];
@@ -216,7 +212,7 @@
       }
     }
   }
-  
+
   function showSceneList() {
     sceneListElement.classList.add('enabled');
     sceneListToggleElement.classList.add('enabled');
@@ -400,84 +396,78 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-
 })();
 
-  function changeList(curScn) {
-    var sceneElements = document.querySelectorAll('#sceneList .scene');
-    
-    // Start Building 1 //
-    
-    if(curScn.includes("B1F2") && curScn.includes("Hall")) {
+function changeList(curScn) {
+  var sceneElements = document.querySelectorAll('#sceneList .scene');
+  
+  // Start Building 1 //
+  
+  if(curScn.includes("B1F2") && curScn.includes("Hall")) {
 
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("b1f2hall") && !el.getAttribute('data-id').includes("b1f2bulwagan") ) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b1f2hall") && !el.getAttribute('data-id').includes("b1f2bulwagan") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
       }
-
-    } else if(curScn.includes("B1F3") && curScn.includes("Hall")) {
-
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("b1f3hall") && !el.getAttribute('data-id').includes("b1f3ptroom") && !el.getAttribute('data-id').includes("b1f3room") && !el.getAttribute('data-id').includes("b1f3mw")) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
-      }
-
-    } else if(curScn.includes("B1F4") && curScn.includes("Hall")) {
-
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("b1f4hall") && !el.getAttribute('data-id').includes("b1f4room") ) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
-      }
-
-    } else if(curScn.includes("B1F5") && curScn.includes("Hall")) {
-
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("b1f5hall") && !el.getAttribute('data-id').includes("b1f5room") && !el.getAttribute('data-id').includes("b1f5lab") ) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
-      }
-
-    } else if(curScn.includes("B1") && curScn.includes("Stairs") && curScn.includes("West")) {
-      
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("stairs") + !el.getAttribute('data-id').includes("west") && !el.getAttribute('data-id').includes("entrance") + el.getAttribute('data-id').includes("east")) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
-      }
-
-    } else if(curScn.includes("B1") && curScn.includes("Stairs") && curScn.includes("East")) {
-     
-      for (var i = 0; i < sceneElements.length; i++) {
-        let el = sceneElements[i];
-        if(!el.getAttribute('data-id').includes("stairs") + !el.getAttribute('data-id').includes("east") && !el.getAttribute('data-id').includes("entrance") + el.getAttribute('data-id').includes("west")) {
-          el.style.display = "none";
-        } else {
-          el.style.display = "list-item";
-        }
-      }
-      
     }
+
+  } else if(curScn.includes("B1F3") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b1f3hall") && !el.getAttribute('data-id').includes("b1f3ptroom") && !el.getAttribute('data-id').includes("b1f3room") && !el.getAttribute('data-id').includes("b1f3mw")) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B1F4") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b1f4hall") && !el.getAttribute('data-id').includes("b1f4room") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B1F5") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b1f5hall") && !el.getAttribute('data-id').includes("b1f5room") && !el.getAttribute('data-id').includes("b1f5lab") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B1") && curScn.includes("Stairs") && curScn.includes("West")) {
+    
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("stairs") + !el.getAttribute('data-id').includes("west") && !el.getAttribute('data-id').includes("entrance") + el.getAttribute('data-id').includes("east")) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B1") && curScn.includes("Stairs") && curScn.includes("East")) {
+   
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("stairs") + !el.getAttribute('data-id').includes("east") && !el.getAttribute('data-id').includes("entrance") + el.getAttribute('data-id').includes("west")) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+    
   }
-  //   // let list = document.getElementById('scenes');
-  //   // var entry = document.createElement('li');
-  //   // entry.appendChild(document.createTextNode("asd"));
-  //   // list.appendChild(entry);
-  // }
+}
