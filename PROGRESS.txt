@@ -5,3 +5,5 @@ E/A = Edit at Align
 B2EntranceWest2 - E/A
 
 3/27/23 - Added building 2
+
+3/30/23 - Completed VT (for polishing)

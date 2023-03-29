@@ -426,11 +426,11 @@ function changeList(curScn) {
 
   // Start WestHall //
 
-  else if(curScn.includes("WestHall")) {
+  else if(curScn.includes("WestHall") ) {
 
     for (var i = 0; i < sceneElements.length; i++) {
       let el = sceneElements[i];
-      if(!el.getAttribute('data-id').includes("westhall")) {
+      if(!el.getAttribute('data-id').includes("westhall") || el.getAttribute('data-id').includes("b7")) {
         el.style.display = "none";
       } else {
         el.style.display = "list-item";
@@ -618,6 +618,67 @@ function changeList(curScn) {
   }
 
   // End Building 2 //
+
+  // Start Building 3 //
+
+  else if(curScn.includes("B3F1") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b3f1hall") && !el.getAttribute('data-id').includes("b3f1room") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B3F2") && curScn.includes("Library")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b3f2library") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B3Ex") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b3exhall") && !el.getAttribute('data-id').includes("b3exroom") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B3") && curScn.includes("Stairs") && curScn.includes("West") ) {
+    
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b2") + !el.getAttribute('data-id').includes("stairswest") && !el.getAttribute('data-id').includes("b2") + !el.getAttribute('data-id').includes("entrancewest") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B3") && curScn.includes("Stairs") && curScn.includes("East") ) {
+   
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b3") + !el.getAttribute('data-id').includes("stairseast") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+    
+  }
+
+  // End Building 3 //
 
 
 }
