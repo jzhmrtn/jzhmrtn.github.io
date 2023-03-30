@@ -404,6 +404,41 @@
 
 })();
 
+// Search Function //
+
+let srchBtn = document.getElementById("srchBtn");
+
+srchBtn.addEventListener("click", function() {
+
+  let srchInput = document.getElementById("srchInput");
+  // console.log(srchInput.value);
+  searchScene(srchInput.value);
+
+});
+
+function searchScene(scnName) {
+
+  let sceneElements = document.querySelectorAll('#sceneList .scene');
+
+    for (let i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      
+      if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
+
+      el.style.display = "list-item";
+      console.log("display");
+
+      } else {
+        el.style.display = "none";
+        console.log("remove");
+      }
+
+    }
+
+}
+
+// Change Scene List Function //
+
 function changeList(curScn) {
   var sceneElements = document.querySelectorAll('#sceneList .scene');
 
