@@ -15,7 +15,6 @@
  */
 'use strict';
 
-(function() {
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
   var screenfull = window.screenfull;
@@ -402,9 +401,25 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-})();
+;
 
-// Search Function //
+// Functions //
+
+// SwitchScene from Nav //
+
+function switchFromModal(sceneModal) {
+  for (var i = 0; i < scenes.length; i++) {
+    if (scenes[i].data.name === sceneModal) {
+      changeList(sceneModal);
+      switchScene(scenes[i]);
+      
+    } else {
+      console.log("not switched");
+    }
+  }
+}
+
+// Search Button //  
 
 let srchBtn = document.getElementById("srchBtn");
 
@@ -437,7 +452,8 @@ function searchScene(scnName) {
 
 }
 
-// Change Scene List Function //
+
+// Scene List Update //
 
 function changeList(curScn) {
   var sceneElements = document.querySelectorAll('#sceneList .scene');
