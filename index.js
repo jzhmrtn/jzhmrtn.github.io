@@ -421,36 +421,36 @@ function switchFromModal(sceneModal) {
 
 // Search Button //  
 
-let srchBtn = document.getElementById("srchBtn");
+// let srchBtn = document.getElementById("srchBtn");
 
-srchBtn.addEventListener("click", function() {
+// srchBtn.addEventListener("click", function() {
 
-  let srchInput = document.getElementById("srchInput");
-  // console.log(srchInput.value);
-  searchScene(srchInput.value);
+//   let srchInput = document.getElementById("srchInput");
+//   // console.log(srchInput.value);
+//   searchScene(srchInput.value);
 
-});
+// });
 
-function searchScene(scnName) {
+// function searchScene(scnName) {
 
-  let sceneElements = document.querySelectorAll('#sceneList .scene');
+//   let sceneElements = document.querySelectorAll('#sceneList .scene');
 
-    for (let i = 0; i < sceneElements.length; i++) {
-      let el = sceneElements[i];
+//     for (let i = 0; i < sceneElements.length; i++) {
+//       let el = sceneElements[i];
       
-      if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
+//       if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
 
-      el.style.display = "list-item";
-      console.log("display");
+//       el.style.display = "list-item";
+//       console.log("display");
 
-      } else {
-        el.style.display = "none";
-        console.log("remove");
-      }
+//       } else {
+//         el.style.display = "none";
+//         console.log("remove");
+//       }
 
-    }
+//     }
 
-}
+// }
 
 
 // Scene List Update //
