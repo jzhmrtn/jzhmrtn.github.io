@@ -1752,12 +1752,9 @@
   
   <script>
 
-    window.onload = function(){
-        if (parent && parent.searchVT){
-            console.log('registering with parent');
-            parent.searchVT(searchScene);
-        }
-    }
+  window.addEventListener('message', function(m){
+    searchScene(m.data);
+  }, false)
 
 let srchBtn = document.getElementById("srchBtn");
 
