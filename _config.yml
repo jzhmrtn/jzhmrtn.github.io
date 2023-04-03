@@ -1,0 +1,4 @@
+http_headers:
+  Access-Control-Allow-Origin: "https://https://mapaemiliano.github.io"
+  Access-Control-Allow-Methods: "GET, POST, PUT, DELETE, OPTIONS"
+  Access-Control-Allow-Headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range"
