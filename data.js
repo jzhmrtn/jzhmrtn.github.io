@@ -2080,6 +2080,12 @@ var APP_DATA = {
           "rotation": 0,
           "target": "7-f2mainhall7",
           "new_scene_view_params": { "yaw": -2.8758072994453556, "pitch": -0.003357544166409099, "roll": 0, "fov": 0.0 }
+        },
+        {
+          "yaw": -0.5847261396994092,
+          "pitch": 0.34126935993819174,
+          "rotation": 5,
+          "target": "13-mainhall14",
         }
       ],
       "infoHotspots": []
@@ -2225,6 +2231,12 @@ var APP_DATA = {
           "rotation": 0,
           "target": "10-f2mainhall10",
           "new_scene_view_params": { "yaw": -0.20008568457424403, "pitch": 0.001084285963974807, "roll": 0, "fov": 0.0 }
+        },
+        {
+          "yaw": 1.8683519536640363,
+          "pitch": 0.3240763618528071,
+          "rotation": 2,
+          "target": "16-mainhall17"
         }
       ],
       "infoHotspots": []
@@ -2316,6 +2328,12 @@ var APP_DATA = {
           "pitch": 0.6751568582595198,
           "rotation": 0,
           "target": "6-b6f2multipurp"
+        },
+        {
+          "yaw": 0.07335904739497678,
+          "pitch": 0.23339662206329592,
+          "rotation": 2,
+          "target": "17-mainhall18"
         },
         {
           "yaw": -1.6220595137628742,
@@ -3461,8 +3479,7 @@ var APP_DATA = {
           "yaw": 0.9699301831164711,
           "pitch": 0.28866465900139104,
           "rotation": 5.497787143782138,
-          "target": "9-f2mainhall9",
-          "new_scene_view_params": { "yaw": -0.07310379978353154, "pitch": -0.0009021095849099936, "roll": 0, "fov": 0.0 }
+          "target": "11-f2mainhall11"
         }
       ],
       "infoHotspots": []
@@ -4719,7 +4736,8 @@ var APP_DATA = {
           "yaw": -1.105603453663047,
           "pitch": 0.3578424460196814,
           "rotation": 0,
-          "target": "8-westroad8"
+          "target": "8-westroad8",
+          "new_scene_view_params": { "yaw": 0.5904528342365847, "pitch": -0.002706305057616376, "roll": 0, "fov": 0.0 }
         }
       ],
       "infoHotspots": []
@@ -4752,24 +4770,37 @@ var APP_DATA = {
       ],
       "faceSize": 2944,
       "initialViewParameters": {
-        "yaw": -0.4158588195438533,
-        "pitch": -0.9089580458830113,
+        "yaw": -0.798680709564147,
+        "pitch": -0.004510488924768907,
         "fov": 1.7100668888543031
       },
       "linkHotspots": [
         {
-          "yaw": 0.8406499423410914,
-          "pitch": 0.14149498141644123,
+          "yaw": 0.5620639786516382,
+          "pitch": 0.344142945461984,
           "rotation": 0,
           "target": "9-westroad9",
           "new_scene_view_params": { "yaw": -0.4220336452711706, "pitch": -0.003236232939729078, "roll": 0, "fov": 0.0 }
         },
         {
-          "yaw": -2.5940854075875546,
-          "pitch": 0.36573786074385595,
+          "yaw": -2.421535014978023, 
+          "pitch": 0.2985080075995654,
           "rotation": 0,
           "target": "7-westroad7",
           "new_scene_view_params": { "yaw": 2.079053165603324, "pitch": -0.0032362329537019008, "roll": 0, "fov": 0.0 }
+        },
+        {
+          "yaw": -1.621535014978023, 
+          "pitch": 0.2985080075995654,
+          "rotation": 0,
+          "target": "5-b6f1alfresco"
+        },
+        {
+          "yaw": -0.7889252320054965,
+          "pitch": 0.22634211868014553,
+          "rotation": 0,
+          "target": "4-b7parking2",
+          "new_scene_view_params": { "yaw": 2.015286810636921, "pitch": -0.004510452440030122, "roll": 0, "fov": 0.0 }
         }
       ],
       "infoHotspots": []
@@ -4807,7 +4838,8 @@ var APP_DATA = {
           "yaw": 2.962763539798619,
           "pitch": 0.2452313633851091,
           "rotation": 0,
-          "target": "8-westroad8"
+          "target": "8-westroad8",
+          "new_scene_view_params": { "yaw": -2.3839445857793358, "pitch": -0.000902109572367138, "roll": 0, "fov": 0.0 }
         },
         {
           "yaw": -0.5027640939500344,
@@ -4975,7 +5007,7 @@ var APP_DATA = {
           "yaw": -0.46269863795988897,
           "pitch": 0.1569458545195772,
           "rotation": 5.497787143782138,
-          "target": "0-mainroadnorth"
+          "target": "34-opencourt"
         }
       ],
       "infoHotspots": []
@@ -6234,7 +6266,7 @@ var APP_DATA = {
           "yaw": -1.1216189345363166,
           "pitch": 0.2707141688452239,
           "rotation": 0,
-          "target": "4-b7parking2"
+          "target": "8-westroad8"
         },
         {
           "yaw": 2.010616808453368,
@@ -15020,6 +15052,12 @@ var APP_DATA = {
           "rotation": 0,
           "target": "2-b6f1hallwest",
           "new_scene_view_params": { "yaw": 0.2673455897280501, "pitch": -0.0009021095369341481, "roll": 0, "fov": 0.0 }
+        },
+        {
+          "yaw": -3.115227613492065,
+          "pitch": 0.1861271734933485,
+          "rotation": 1,
+          "target": "8-westroad8"
         },
         {
           "yaw": 2.9395074439047164,

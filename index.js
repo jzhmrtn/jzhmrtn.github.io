@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
+'use strict'; 
 
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
@@ -401,8 +401,6 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-;
-
 // Functions //
 
 // SwitchScene from Nav //
@@ -421,36 +419,36 @@ function switchFromModal(sceneModal) {
 
 // Search Button //  
 
-let srchBtn = document.getElementById("srchBtn");
+// let srchBtn = document.getElementById("srchBtn");
 
-srchBtn.addEventListener("click", function() {
+// srchBtn.addEventListener("click", function() {
 
-  let srchInput = document.getElementById("srchInput");
-  // console.log(srchInput.value);
-  searchScene(srchInput.value);
+//   let srchInput = document.getElementById("srchInput");
+//   // console.log(srchInput.value);
+//   searchScene(srchInput.value);
 
-});
+// });
 
-function searchScene(scnName) {
+// function searchScene(scnName) {
 
-  let sceneElements = document.querySelectorAll('#sceneList .scene');
+//   let sceneElements = document.querySelectorAll('#sceneList .scene');
 
-    for (let i = 0; i < sceneElements.length; i++) {
-      let el = sceneElements[i];
+//     for (let i = 0; i < sceneElements.length; i++) {
+//       let el = sceneElements[i];
       
-      if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
+//       if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
 
-      el.style.display = "list-item";
-      console.log("display");
+//       el.style.display = "list-item";
+//       console.log("display");
 
-      } else {
-        el.style.display = "none";
-        console.log("remove");
-      }
+//       } else {
+//         el.style.display = "none";
+//         console.log("remove");
+//       }
 
-    }
+//     }
 
-}
+// }
 
 
 // Scene List Update //
@@ -525,6 +523,23 @@ function changeList(curScn) {
   }
 
   // End East Road //
+
+  // Start West Road //
+  
+  else if(curScn.includes("WestRoad")) {
+    
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("westroad")) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+  }
+
+  }
+
+  // End West Road //
 
   // Start Building 1 //
   
@@ -731,5 +746,125 @@ function changeList(curScn) {
 
   // End Building 3 //
 
+  // Start Building 4 //
 
-}
+  else if(curScn.includes("B4F1") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b4f1hall") && !el.getAttribute('data-id').includes("b4f1lab")  && !el.getAttribute('data-id').includes("b4-stairs") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B4F2") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b4f2hall") && !el.getAttribute('data-id').includes("b4f2lab") && !el.getAttribute('data-id').includes("b4-stairs") ) {
+
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+  }
+
+  // End Building 4 //
+
+  // Start Building 5 //
+
+  else if(curScn.includes("B5F1") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b5f1hall") && !el.getAttribute('data-id').includes("b5f1lab") && !el.getAttribute('data-id').includes("b5f1stairs") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B5F2") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b5f2hall") && !el.getAttribute('data-id').includes("b5f2lab") && !el.getAttribute('data-id').includes("b5f2stairs") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } 
+
+  // End Building 5 //
+
+  // Start Building 6 //
+
+  else if(curScn.includes("B6")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b6") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  }
+
+  // End Building 6 //
+
+  // Start Building 7 //
+
+  else if(curScn.includes("B7F1") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b7f1hall") && !el.getAttribute('data-id').includes("b7f1library") && !el.getAttribute('data-id').includes("b7f1library") && !el.getAttribute('data-id').includes("b7f1lect") && !el.getAttribute('data-id').includes("b7f1balcony") && !el.getAttribute('data-id').includes("b7f1north") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B7F2") && curScn.includes("Hall")) { 
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b7f2hall") && !el.getAttribute('data-id').includes("b7f2room") && !el.getAttribute('data-id').includes("b7f2moot") && !el.getAttribute('data-id').includes("b7f2balcony") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B7F3") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b7f3hall") && !el.getAttribute('data-id').includes("b7f3room") && !el.getAttribute('data-id').includes("b7f3balcony") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } else if(curScn.includes("B7F4") && curScn.includes("Hall")) {
+
+    for (var i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      if(!el.getAttribute('data-id').includes("b7f4hall") && !el.getAttribute('data-id').includes("b7f4room") && !el.getAttribute('data-id').includes("b7f4balcony") && !el.getAttribute('data-id').includes("roofdeck") ) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "list-item";
+      }
+    }
+
+  } 
+
+} 

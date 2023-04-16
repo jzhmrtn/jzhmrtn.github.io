@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MapaEmiliano</title>
+<title>EAC-C Virtual Tour</title>
 <meta charset="utf-8">
 <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
 <style> @-ms-viewport { width: device-width; } </style>
@@ -1638,27 +1638,31 @@
   </ul>
 </div>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
+<button>
+  <img src="EAC_Emblem.png" class="icon" id="toggleButton">
+</button>
 
-  <input type="text" id="srchInput" > </input>
-  <button id="srchBtn" >Search</button>
-</div>
+  <div class="Vtheader">
+    <div id="titleBar">
+      <h1 class="sceneName"></h1>
+    </div>
 
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
+      <a href="javascript:void(0)" id="autorotateToggle">
+        <img class="icon off" src="img/play.png">
+        <img class="icon on" src="img/pause.png">
+      </a>
+      
+      <a href="javascript:void(0)" id="fullscreenToggle">
+        <img class="icon off" src="img/fullscreen.png">
+        <img class="icon on" src="img/windowed.png">
+      </a>
+      
+      <a href="javascript:void(0)" id="sceneListToggle">
+        <img class="icon off" src="img/expand.png">
+        <img class="icon on" src="img/collapse.png">
+      </a>
 
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
-
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
+  </div>
 
 <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
   <img class="icon" src="img/up.png">
@@ -1685,62 +1689,9 @@
 
 <script src="data.js"></script>
 <script src="index.js"></script>
+<script src="VTheader.js"></script>
 
 </body>
-<style>
-  .circledot{
-    height: 18px;
-    width: 18px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: inline-block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index:1;
-  }
-  
-  .biggestdot{
-    height: 15px;
-    width: 15px;
-    background-color: #abcdef;
-    border-radius: 50%;
-    display: inline-block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index:1;
-  }
-  
-   .biggerdot{
-    height: 10px;
-    width: 10px;
-    background-color: #abbddd;
-    border-radius: 50%;
-    display: inline-block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index:1;
-  }
-  
-   .dot {
-    height: 5px;
-    width: 5px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    display: inline-block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index:1;
-  }
-  
-  </style>
   
   <span class="circledot"></span>
   
@@ -1751,20 +1702,53 @@
   <span class="dot" id="dotje"></span>
   
   <script>
-  
-  document.getElementById('dotje').addEventListener('click', function(e) {
-  
-    var lOutputString  = "\"new_scene_view_params\": { \"yaw\": " + marzipano_viewer.view().screenToCoordinates({ x: e.clientX, y: e.clientY }).yaw + ", ";
-  
-    var lOutputString = lOutputString +             "\"pitch\": " + marzipano_viewer.view().screenToCoordinates({ x: e.clientX, y: e.clientY }).pitch + ", ";
-  
-    var lOutputString = lOutputString + "\"roll\": 0, \"fov\": 0.0 }";
-  
-    console.log(lOutputString); 
-  
-    window.prompt("Here are the values you are looking for;",lOutputString);
-  
-  });
+
+    window.addEventListener('message', function(m){
+
+      let funcToDo = m.data.split(" || ");
+
+      console.log(funcToDo);
+
+      if(funcToDo[0] == "Search") {
+        searchScene(funcToDo[1]);
+      } else if(funcToDo[0] == "vtNav") {
+        switchFromModal(funcToDo[1]);
+      }
+
+    }, false)
+
+
+
+let srchBtn = document.getElementById("srchBtn");
+
+srchBtn.addEventListener("click", function() {
+
+  let srchInput = document.getElementById("srchInput");
+  // console.log(srchInput.value);
+  searchScene(srchInput.value);
+
+});
+
+function searchScene(scnName) {
+
+  let sceneElements = document.querySelectorAll('#sceneList .scene');
+
+    for (let i = 0; i < sceneElements.length; i++) {
+      let el = sceneElements[i];
+      
+      if(el.innerText.toLowerCase().includes(scnName.toLowerCase())) {
+
+      el.style.display = "list-item";
+      console.log("display");
+
+      } else {
+        el.style.display = "none";
+        console.log("remove");
+      }
+
+    }
+
+}
   
   </script>
 
